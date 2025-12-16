@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - RAG System</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>⚙️ Admin Panel</h1>
+                <p class="subtitle">Manage documents and system</p>
+            </div>
+            <div class="header-actions">
+                <a href="/" class="btn btn-secondary">User Interface</a>
+                <button id="logoutBtn" class="btn btn-danger">Logout</button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <div class="admin-section">
+                <h2>📤 Upload Documents</h2>
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📁</div>
+                    <p class="upload-text">Drag & drop files here or click to browse</p>
+                    <p class="upload-subtext">Supported: PDF, Word (.docx), Excel (.xlsx, .xls)</p>
+                    <input type="file" id="fileInput" accept=".pdf,.docx,.doc,.xlsx,.xls" multiple hidden>
+                    <button class="btn btn-primary" id="browseBtn">Browse Files</button>
+                </div>
+
+                <!-- Upload Progress -->
+                <div id="uploadProgress" class="upload-progress" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p id="uploadStatus">Uploading...</p>
+                </div>
+            </div>
+
+            <!-- Documents List -->
+            <div class="admin-section">
+                <div class="section-header">
+                    <h2>📋 Uploaded Documents</h2>
+                    <button class="btn btn-secondary" id="refreshBtn">🔄 Refresh</button>
+                </div>
+
+                <div id="documentsTable" class="documents-table">
+                    <div class="table-loading">
+                        <span class="spinner"></span> Loading documents...
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Actions -->
+            <div class="admin-section">
+                <h2>🔧 System Actions</h2>
+                <div class="action-buttons">
+                    <button class="btn btn-warning" id="rebuildIndexBtn">
+                        🔄 Rebuild Index
+                    </button>
+                    <button class="btn btn-info" id="systemStatusBtn">
+                        📊 System Status
+                    </button>
+                </div>
+            </div>
+
+            <!-- Status Messages -->
+            <div id="statusMessage" class="status-message" style="display: none;"></div>
+        </main>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3>Confirm Delete</h3>
+            <p>Are you sure you want to delete this document?</p>
+            <p class="modal-filename" id="deleteFilename"></p>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" id="cancelDelete">Cancel</button>
+                <button class="btn btn-danger" id="confirmDelete">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/admin.js"></script>
+</body>
+</html>

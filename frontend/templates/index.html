@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Document Query System</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>📚 Document Query System</h1>
+                <p class="subtitle">Ask questions about your documents</p>
+            </div>
+            <div class="header-actions">
+                <a href="/login" class="btn btn-secondary">Admin Login</a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Query Section -->
+            <div class="query-section">
+                <div class="input-group">
+                    <textarea 
+                        id="queryInput" 
+                        placeholder="Ask a question about your documents... (e.g., What was the average ethylene price in May 2024?)"
+                        rows="3"
+                    ></textarea>
+                    <button id="submitQuery" class="btn btn-primary">
+                        <span class="btn-text">Ask Question</span>
+                        <span class="btn-loading" style="display: none;">
+                            <span class="spinner"></span> Processing...
+                        </span>
+                    </button>
+                </div>
+
+                <!-- Example Questions -->
+                <div class="example-queries">
+                    <p class="example-label">Example questions:</p>
+                    <div class="example-buttons">
+                        <button class="example-btn" data-query="What was the average Central European ethylene price in May 2024?">
+                            Ethylene prices
+                        </button>
+                        <button class="example-btn" data-query="Compare Russian ethylene production in Q1 2024 versus Q1 2025">
+                            Production comparison
+                        </button>
+                        <button class="example-btn" data-query="What were Czech crude imports in Jan-Mar 2025?">
+                            Import data
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div id="resultsSection" class="results-section" style="display: none;">
+                <div class="answer-card">
+                    <h3>Answer</h3>
+                    <div id="answerContent" class="answer-content"></div>
+                    <div class="processing-time">
+                        <small>⏱️ Processing time: <span id="processingTime">0</span>s</small>
+                    </div>
+                </div>
+
+                <!-- Sources -->
+                <div class="sources-section">
+                    <h3>📑 Sources</h3>
+                    <div id="sourcesContent" class="sources-list"></div>
+                </div>
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyState" class="empty-state">
+                <div class="empty-icon">💬</div>
+                <h3>Ask a question to get started</h3>
+                <p>Query your documents using natural language</p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by FastAPI + LlamaIndex | Supports PDF, Word, Excel</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+# Core FastAPI
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+python-multipart==0.0.9
+aiofiles>=23.2.0
+
+# Authentication
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# Environment
+python-dotenv>=1.0.0
+
+# LlamaIndex core and integrations (latest stable)
+llama-index-core>=0.14.0
+llama-index-llms-groq>=0.4.0
+llama-index-embeddings-huggingface>=0.6.0
+llama-index-vector-stores-chroma>=0.5.0
+
+# Vector Store - loosen to allow compatible version
+chromadb>=0.5.17
+
+# Data Processing
+pandas>=2.2.0
+openpyxl>=3.1.0
+docx2txt==0.8
+
+# Pydantic
+pydantic>=2.9.0
+pydantic-settings>=2.5.0
+
+# Templates
+jinja2>=3.1.0
+
+# HuggingFace local embeddings support (prevent downgrades)
+sentence-transformers>=3.0.0
+transformers>=4.45.0
+huggingface-hub>=0.25.0
+torch>=2.4.0
