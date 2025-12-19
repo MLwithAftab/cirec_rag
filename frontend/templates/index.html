@@ -11,71 +11,59 @@
         <!-- Header -->
         <header class="header">
             <div class="header-content">
-                <h1>📚 Document Query System</h1>
-                <p class="subtitle">Ask questions about your documents</p>
+                <h1>📚 Cirec Chemical Articles</h1>
+                <p class="subtitle">Ask chemicals related questions</p>
             </div>
             <div class="header-actions">
+                <button id="newChatBtn" class="btn btn-secondary">🔄 New Chat</button>
                 <a href="/login" class="btn btn-secondary">Admin Login</a>
             </div>
         </header>
 
         <!-- Main Content -->
-        <main class="main-content">
-            <!-- Query Section -->
-            <div class="query-section">
-                <div class="input-group">
+        <main class="main-content chat-interface">
+            <!-- Chat Messages Container -->
+            <div id="chatContainer" class="chat-container">
+                <!-- Welcome Message -->
+                <div class="welcome-message">
+                    <div class="empty-icon">💬</div>
+                    <h3>Start a conversation</h3>
+                    <p>Ask questions about your documents using natural language</p>
+                    
+                    <!-- Example Questions -->
+                    <div class="example-queries-chat">
+                        <p class="example-label">Example questions:</p>
+                        <div class="example-buttons">
+                            <button class="example-btn" data-query="What was the average Central European ethylene price in May 2024?">
+                                📊 Ethylene prices
+                            </button>
+                            <button class="example-btn" data-query="Compare Russian ethylene production in Q1 2024 versus Q1 2025">
+                                📈 Production comparison
+                            </button>
+                            <button class="example-btn" data-query="What were Czech crude imports in Jan-Mar 2025?">
+                                🛢️ Import data
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Section (Fixed at bottom) -->
+            <div class="chat-input-container">
+                <div class="chat-input-wrapper">
                     <textarea 
-                        id="queryInput" 
-                        placeholder="Ask a question about your documents... (e.g., What was the average ethylene price in May 2024?)"
-                        rows="3"
+                        id="chatInput" 
+                        placeholder="Ask a question about your documents..."
+                        rows="1"
                     ></textarea>
-                    <button id="submitQuery" class="btn btn-primary">
-                        <span class="btn-text">Ask Question</span>
-                        <span class="btn-loading" style="display: none;">
-                            <span class="spinner"></span> Processing...
-                        </span>
+                    <button id="sendBtn" class="btn-send" title="Send message">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </button>
                 </div>
-
-                <!-- Example Questions -->
-                <div class="example-queries">
-                    <p class="example-label">Example questions:</p>
-                    <div class="example-buttons">
-                        <button class="example-btn" data-query="What was the average Central European ethylene price in May 2024?">
-                            Ethylene prices
-                        </button>
-                        <button class="example-btn" data-query="Compare Russian ethylene production in Q1 2024 versus Q1 2025">
-                            Production comparison
-                        </button>
-                        <button class="example-btn" data-query="What were Czech crude imports in Jan-Mar 2025?">
-                            Import data
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Results Section -->
-            <div id="resultsSection" class="results-section" style="display: none;">
-                <div class="answer-card">
-                    <h3>Answer</h3>
-                    <div id="answerContent" class="answer-content"></div>
-                    <div class="processing-time">
-                        <small>⏱️ Processing time: <span id="processingTime">0</span>s</small>
-                    </div>
-                </div>
-
-                <!-- Sources -->
-                <div class="sources-section">
-                    <h3>📑 Sources</h3>
-                    <div id="sourcesContent" class="sources-list"></div>
-                </div>
-            </div>
-
-            <!-- Empty State -->
-            <div id="emptyState" class="empty-state">
-                <div class="empty-icon">💬</div>
-                <h3>Ask a question to get started</h3>
-                <p>Query your documents using natural language</p>
+                <p class="input-hint">Press Enter to send, Shift+Enter for new line</p>
             </div>
         </main>
 

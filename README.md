@@ -1,6 +1,6 @@
 python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 ```
-http://localhost:8000/admin enter the password(admin123) and username(admin) to upload the documents once uploaded use this http://localhost:8000/
+http://localhost:8000/admin enter the password() and username() to upload the documents once uploaded use this http://localhost:8000/
 
 
 ---
